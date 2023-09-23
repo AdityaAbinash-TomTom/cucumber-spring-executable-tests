@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.RequiredArgsConstructor;
+import org.springframework.util.Assert;
 
 @RequiredArgsConstructor
 public class MyStepDefs {
@@ -23,6 +24,6 @@ public class MyStepDefs {
 
     @Then("the test jar prints \"Hello World\"")
     public void then() {
-        assert config.getMessage().equals("Hello World");
+        Assert.isTrue(config.getMessage().equals("Hello World"), "Message mismatch");
     }
 }
